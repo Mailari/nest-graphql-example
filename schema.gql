@@ -3,6 +3,7 @@
 # ------------------------------------------------------
 
 type CreateCatDto {
+  id: String!
   name: String!
   age: Int!
   breed: String!

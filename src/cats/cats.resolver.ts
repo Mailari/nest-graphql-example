@@ -13,10 +13,12 @@ export class CatsResolver {
   }
 
   @Query(() => [CreateCatDto])
-  findAll(@Args('limit') limit: number, @Args('page') page: number) {
+  async findAll(@Args('limit') limit: number, @Args('page') page: number) {
     console.log({ limit, page });
 
-    return this.catService.findAll(limit, page);
+    const cats = await this.catService.findAll(limit, page);
+    console.log({ cats });
+    return cats;
   }
 
   @Mutation(() => CreateCatDto)
